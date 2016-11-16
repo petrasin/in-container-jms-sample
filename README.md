@@ -1,15 +1,18 @@
 in-container-jms-sample: Example Using JMS, EJB Java technologies
 ==============================================================================================
 Author: Miloš Petrašinović
+
 Technologies: JMS, EJB
+
 Summary: Simple producer/consumer processing via JMS
+
 Source: <https://github.com/petrasin/in-container-jms-sample>
 
 What is it?
 -----------
 
-It is a sample, deployable Maven 3 project to show implementation of producer consumer architecture on JBoss WildFly.
-There are configurable amount of parallel producers sending random generated uuids to to designated queue.
+It is a simple, deployable Maven 3 project to show implementation of producer consumer architecture on JBoss WildFly.
+There are configurable amount of parallel producers sending random generated uuids to the designated queue.
 On the other side, parallel consumers (parallelism is provided by container mdb thread policy) consumes messages from the queue.
 
 System requirements
@@ -30,7 +33,7 @@ Start JBoss WildFly
 -------------------------
 
 1. Open a command line and navigate to the root of the JBoss server directory.
-2. The following shows the command line to start the server with the web profile:
+2. The following shows the command line to start the server:
 
         For Linux:   JBOSS_HOME/bin/standalone.sh -c standalone-full.xml
         For Windows: JBOSS_HOME\bin\standalone.bat -c standalone-full.xml
@@ -53,9 +56,8 @@ _NOTE: The following build command assumes you have configured your Maven user s
 Access the application
 ---------------------
 
-The application will be running in Wildfly container and its result can be seen on either console log or configured application log file.
-Application log file is located at ${jboss.home.dir}/standalone/log/in-container-jms-sample.log and its content looks like:
-    
+The application will be running in Wildfly container and its results can be seen on either console log or configured application log file.
+Application log file is located at ${jboss.home.dir}/standalone/log/in-container-jms-sample.log and its content looks like:  
 	
     2016-11-16 15:03:12,936 [Producer-1] INFO  UUIDProducer - Producing UUID: 5e6da6ab-e6bb-460b-bdde-682d889d26d5
     2016-11-16 15:03:12,938 [Producer-3] INFO  UUIDProducer - Producing UUID: 1619d4f4-c04b-4c5e-bb1d-524050b5d5d3
@@ -63,7 +65,6 @@ Application log file is located at ${jboss.home.dir}/standalone/log/in-container
     2016-11-16 15:03:12,940 [Thread-62 (ActiveMQ-client-global-threads-678884679)] INFO  UUIDConsumer - Consuming UUID: 1619d4f4-c04b-4c5e-bb1d-524050b5d5d3
     2016-11-16 15:03:12,940 [Producer-4] INFO  UUIDProducer - Producing UUID: e2203c0d-4525-4cf9-8cb4-67826060800a
     
-
 
 Undeploy the Archive
 --------------------
